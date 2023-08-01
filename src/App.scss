@@ -1,0 +1,143 @@
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+.App {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .box {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        border-radius: 0.35em;
+        border: 1px solid #fff;
+        width: 60%;
+        color: white;
+        gap: 1em;
+
+        @include mobile {
+            height: 82vh;
+            width: 80%;
+            gap: 2em;
+            overflow: hidden;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .qrcode {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: white;
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
+
+            @include mobile {
+                flex-direction: column;
+                gap: 2em;
+            }
+
+            svg {
+                height: auto;
+                width: 25%;
+                border-radius: 0.25em;
+
+                @include mobile {
+                    width: 60%;
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+                justify-content: space-between;
+                height: 75%;
+
+                @include mobile {
+                    width: -webkit-fill-available;
+                    height: 65%;
+                }
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    padding: 0.2em 1em;
+                    border: 1px solid gray;
+                    border-radius: 0.25em;
+                    margin-bottom: 0.5em;
+                    cursor: pointer;
+                }
+
+                input {
+                    width: -webkit-fill-available;
+                    height: 6vh;
+                    color: white;
+                    border-radius: 0.25em;
+                    background: transparent;
+                    border: 1px solid gray;
+                    font-size: 1.1rem;
+                    letter-spacing: 0.5px;
+                    outline: none;
+                    padding: 0 1em;
+                    margin-bottom: 0.5em;
+                }
+
+                .btn {
+                    display: flex;
+                    width: -webkit-fill-available;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: auto;
+
+                    @include mobile {
+                        flex-direction: column-reverse;
+                        gap: 1em;
+                    }
+
+                    button {
+                        width: max-content;
+                        padding: 0.3em 1em;
+                        color: white;
+                        border-radius: 0.25em;
+                        background: rgb(17, 170, 124);
+                        border: 1px solid gray;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+
+                        @include mobile {
+                            width: -webkit-fill-available;
+                        }
+                    }
+
+                    a {
+                        @include mobile {
+                            width: -webkit-fill-available;
+                        }
+                    }
+
+                    #Reset {
+                        background: rgb(255, 54, 104);
+                    }
+
+                    #generate {
+                        background: rgb(54, 108, 255);
+                    }
+                }
+
+            }
+        }
+    }
+}
